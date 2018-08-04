@@ -1,0 +1,84 @@
+
+
+
+
+<div class="container">
+
+
+　　　<div class="row">
+
+
+	<div class="col-xs-6 col-lg-6">
+
+
+<h2>new book</h2>
+
+<%= bootstrap_form_for(@blog) do |f| %>
+
+	<%= f.text_field :title %>
+
+	<%= f.text_field :opinion %>
+
+	<%= f.attachment_field :image %>
+
+<br>
+
+	<%= f.submit 'create', class: "square_btn" %>
+
+<% end %>
+
+</div>
+
+	　　　<div class="col-xs-6 col-lg-6">
+
+ <table class="table table-striped">
+
+ 	<thead>
+ 		<tr>
+ 			<th>title</th>
+ 			<th>opinion</th>
+ 			<th>image</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<% @blogs.each do |blog| %>
+ 		<tr>
+ 			<td>
+ 				<%= blog.title %>
+ 			</td>
+ 			<td>
+ 				<%= blog.opinion %>
+ 			</td>
+ 			<td>
+ 				<%= attachment_image_tag blog, :image, :fill, 30, 30, format: 'jpeg' %>
+ 		    </td>
+ 		    <td>
+ 			    <%= link_to "show", blog_path(blog.id), class: "btn btn-primary" %>
+ 			</td>
+ 			<td>
+ 			    <%= link_to "edit", edit_blog_path(blog.id), class: "btn btn-info" %>
+ 			</td>
+ 			<td>
+ 			    <%= link_to "destroy", blog_path(blog.id), method: :delete, class: "btn btn-danger" %>
+ 			</td>
+
+ 		    </td>
+ 	    </tr>
+ 	</tbody>
+ <% end %>
+ </table>
+
+
+</div>
+
+
+<footer>
+
+	<h3></h3>
+
+</footer>
+
+</div>
+
+</div>
+

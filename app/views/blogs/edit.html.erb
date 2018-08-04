@@ -1,0 +1,39 @@
+
+<div class="container">
+
+<h1>edit blog</h1>
+
+
+<%= form_for(@blog) do |f| %>
+		<div class="form-group">
+
+			<label>title</label>
+		<%= f.text_field :title, class: "form-control" %>
+
+
+		<br>
+
+
+		    <label>opinion</label>
+		<%= f.text_field :opinion, class: "form-control" %>
+
+		<br>
+
+		    <label>image</label>
+
+		<%= f.attachment_field :image %>
+
+		<br>
+	    </div>
+
+
+		<%= f.submit 'update book', class: "square_btn" %>
+
+<% end %> <br>
+
+
+		<%= link_to 'show', blog_path, class: "btn btn-primary" %>
+
+		|
+
+		<%= link_to 'back', :back, class: "btn btn-info" %>
